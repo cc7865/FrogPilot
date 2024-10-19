@@ -298,7 +298,7 @@ class RadarD:
       self.radar_state.leadOne = get_lead(self.v_ego, self.ready, self.tracks, leads_v3[0], model_v_ego, self.frogpilot_toggles.lead_detection_threshold, low_speed_override=True)
       self.radar_state.leadTwo = get_lead(self.v_ego, self.ready, self.tracks, leads_v3[1], model_v_ego, self.frogpilot_toggles.lead_detection_threshold, low_speed_override=False)
 
-    if self.frogpilot_toggles.adjacent_lead_tracking_ui:
+    if self.frogpilot_toggles.adjacent_lead_tracking_ui and v_ego > 1:
       self.radar_state.leadLeft = get_lead_adjacent(self.tracks, sm['modelV2'], sm['frogpilotPlan'].laneWidthLeft, left=True)
       self.radar_state.leadLeftFar = get_lead_adjacent(self.tracks, sm['modelV2'], sm['frogpilotPlan'].laneWidthLeft, left=True, far=True)
       self.radar_state.leadRight = get_lead_adjacent(self.tracks, sm['modelV2'], sm['frogpilotPlan'].laneWidthRight, left=False)
